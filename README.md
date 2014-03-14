@@ -5,7 +5,6 @@
     <groupId>fr.wayis.framework</groupId>
     <artifactId>mongo-utils</artifactId>
     <version>1.0.0</version>
-    <scope>test</scope>
 </dependency>
 ```
 ## Version 1.0.0
