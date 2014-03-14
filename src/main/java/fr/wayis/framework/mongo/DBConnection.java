@@ -11,36 +11,43 @@ import javax.inject.Inject;
 import java.net.UnknownHostException;
 
 /**
- * EJB that handles the connection to MongoDB database. According to MongoDB
- * Java driver documentation, there should be only one instance of
- * {@link MongoClient} in a Web application @see <a href=
- * "http://docs.mongodb.org/ecosystem/drivers/java-concurrency/#java-driver-concurrency"
- * >http://docs.mongodb.org/ecosystem/drivers/java-concurrency/#java-driver-
- * concurrency</a> If config property mongodb.dbname value is an un-existing
- * database, it will be created after the construction of this singleton EJB
- * class.
+ * EJB singleton that handles the connection to MongoDB database.<br/>
+ * All properties are searched into a mongodb.properties bundle file:
+ * <ul>
+ * <li>mongodb.host: The host of the mongodb server. (Default value: 'localhost').</li>
+ * <li>mongodb.port: The port of the mongodb server. (Default value: '27017').</li>
+ * <li>mongodb.dbname: The mongodb database to use. If the database does not exist, it will be created after the construction of this singleton EJB class.</li>
+ * </ul>
+ * <p/>
+ * According to MongoDB Java driver documentation, there should be only one instance of {@link MongoClient} in a Web application.
+ *
+ * @see <a href="http://docs.mongodb.org/ecosystem/drivers/java-concurrency/#java-driver-concurrency">http://docs.mongodb.org/ecosystem/drivers/java-concurrency/#java-driver-concurrency</a>
  */
 @Singleton
 public class DBConnection {
 
     private DB database;
+
     /**
-     * MongoDB server address.
+     * MongoDB server address.<br/>
+     * Default value: 'localhost'.
      */
     @Inject
-    @ConfigProperty(key = "mongodb.host", defaultValue = "localhost")
+    @ConfigProperty(bundle = "mongodb", key = "mongodb.host", defaultValue = "localhost")
     private String host;
     /**
-     * MongoDB port.
+     * MongoDB port.<br/>
+     * Default value: '27017'.
      */
     @Inject
-    @ConfigProperty(key = "mongodb.port", defaultValue = "27017")
+    @ConfigProperty(bundle = "mongodb", key = "mongodb.port", defaultValue = "27017")
     private Integer port;
     /**
-     * MongoDB database to use.
+     * MongoDB database to use.<br/>
+     * If the database does not exist, it will be created after the construction of this singleton EJB class
      */
     @Inject
-    @ConfigProperty(key = "mongodb.dbname", mandatory = true)
+    @ConfigProperty(bundle = "mongodb", key = "mongodb.dbname", mandatory = true)
     private String dbName;
 
     @PostConstruct
@@ -52,9 +59,7 @@ public class DBConnection {
     /**
      * Get a collection from mongodb database.
      *
-     * @param name
-     *            the collection name. If null, collection will be created to
-     *            database.
+     * @param name the collection name. If null, collection will be created to database.
      * @return the related collection
      */
     public DBCollection getCollection(final String name) {
