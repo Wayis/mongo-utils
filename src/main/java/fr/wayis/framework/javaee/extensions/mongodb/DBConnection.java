@@ -1,9 +1,9 @@
-package fr.wayis.framework.mongo;
+package fr.wayis.framework.javaee.extensions.mongodb;
 
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.MongoClient;
-import fr.wayis.framework.jee6.property.ConfigProperty;
+import fr.wayis.framework.javaee.extensions.api.config.ConfigProperty;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;

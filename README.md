@@ -3,7 +3,7 @@
 ```
 <dependency>
     <groupId>fr.wayis.framework</groupId>
-    <artifactId>mongo-utils</artifactId>
+    <artifactId>javaee6-extensions-mongodb</artifactId>
     <version>1.0.0</version>
 </dependency>
 ```
@@ -21,7 +21,7 @@ Example to use it in an API REST Resource with JAX-RS:
 ```java
 import com.mongodb.DBCollection;
 import com.mongodb.DBObject;
-import fr.wayis.framework.mongo.DBConnection;
+import fr.wayis.framework.javaee.extensions.mongodb.DBConnection;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
