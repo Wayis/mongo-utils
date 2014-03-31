@@ -4,7 +4,7 @@
 
     <groupId>com.github.wayis.framework</groupId>
     <artifactId>javaee6-extensions-mongodb</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Java EE 6 CDI Extensions For MongoDB</name>
@@ -15,7 +15,7 @@
         <connection>scm:git:git@github.com:wayis/javaee6-extensions-mongodb.git</connection>
         <url>git@github.com:wayis/javaee6-extensions-mongodb.git</url>
         <developerConnection>scm:git:git@github.com:wayis/javaee6-extensions-mongodb.git</developerConnection>
-    <tag>javaee6-extensions-mongodb-1.0.0</tag>
+    <tag>HEAD</tag>
   </scm>
 
     <licenses>
