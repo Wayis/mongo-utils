@@ -1,4 +1,4 @@
-package fr.wayis.framework.javaee.extensions.mongodb;
+package com.github.wayis.framework.javaee.extensions.mongodb;
 
 import com.github.wayis.framework.javaee.extensions.api.config.ConfigProperty;
 import com.mongodb.DB;
